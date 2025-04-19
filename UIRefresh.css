@@ -1,0 +1,271 @@
+/**
+ * @name FiverrrsDiscordUIRefresh
+ * @author fiverrr0644
+ * @authorLink https://fiverrrvrc.github.io
+ * @version 1.3.2
+ * @description Adds a collapsing userpanel, overhuals some spacings and stuff!
+ * @updateUrl https://github.com/FiverrrVRC/FiverrrsDiscordUIRefresh
+*/
+
+.panels_c48ade {
+  left: var(--space-sm) !important;
+  height: 61px !important;
+  width: 61px !important;
+  border-radius: 30px !important;
+  display: flex !important;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 50000;
+  pointer-events: all;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--background-secondary);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.panels_c48ade .container_e131a9 {
+  border: 1px solid var(--border-normal);
+}
+
+.wrapper_e131a9 {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.panels_c48ade:hover {
+  width: 300px !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column;
+  border-radius: 15px !important;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.panels_c48ade:hover .wrapper_e131a9 {
+  height: auto !important;
+}
+
+.sidebar_c48ade {
+  overflow: visible !important;
+}
+
+.container__2637a {
+  padding-bottom: 0px !important;
+  transition: all 0.3s ease;
+}
+
+.scroller__99e7c {
+  margin-bottom: 0px !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--background-modifier-accent) transparent;
+}
+
+.bottom__7aaec {
+  bottom: 0px !important;
+}
+
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: left;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity, transform;
+  filter: blur(1px);
+}
+
+.visual-refresh [class^="panels_"]:hover [class^="container__"] [class^="buttons__"] {
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.visual-refresh .panel__5dec7 {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.visual-refresh [class^="panels_"]:hover .panel__5dec7 {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panels_c48ade:not(:hover) {
+  animation: subtlePulse 2s infinite;
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.visual-refresh [class^="panels_"]:hover .panel__5dec7 {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.visual-refresh {
+    --vr-header-snippet-top: 0px;
+    --vr-header-snippet-server-padding: 16px;
+    --vr-header-snippet-space: 230px;
+    --vr-header-snippet-button-padding: 0;
+
+    div.chat_f75fb0,
+    div.subtitleContainer_f75fb0,
+    main.container__133bf,
+    div.chatLayerWrapper__01ae2 {
+        & section.container__9293f {
+            padding-right: var(--vr-header-snippet-space);
+        }
+    }
+
+    div.page_c48ade {
+        &:not(:has(> div.chat_f75fb0)) {
+            anchor-name: --vr-header-snippet;
+        }
+
+        & > div.chat_f75fb0 {
+            anchor-name: --vr-header-snippet;
+        }
+    }
+
+    div.base_c48ade {
+        grid-template-rows: [top] 0 [titleBarEnd] min-content [noticeEnd] 1fr [contentEnd] min-content [end];
+
+        &:has(
+                div.bar_c38106
+                    > div.trailing_c38106
+                    .updateIconForeground__49676
+            ) {
+            & div.chat_f75fb0,
+            & div.subtitleContainer_f75fb0,
+            & main.container__133bf,
+            & div.chatLayerWrapper__01ae2 {
+                & section.container__9293f {
+                    padding-right: calc(var(--vr-header-snippet-space) + 50px);
+                }
+            }
+
+            & div.videoControls_bfe55a .topControls_bfe55a div.toolbar__9293f {
+                margin-right: calc(
+                    var(--vr-header-snippet-space) + 30px
+                ) !important;
+            }
+        }
+
+        & > div.content_c48ade {
+            z-index: 0;
+        }
+
+        & > div.bar_c38106 {
+            position: absolute;
+            position-anchor: --vr-header-snippet;
+            top: var(--vr-header-snippet-top);
+            right: anchor(right);
+            width: anchor-size(width);
+            padding: 0 var(--vr-header-snippet-button-padding) 0 0;
+
+            & > .title_c38106 {
+                display: none;
+            }
+        }
+
+        &:has(> .notice__6e2b9) {
+            & > div.bar_c38106 {
+                top: anchor(top);
+            }
+        }
+
+        & div.trailing_c38106 {
+            background: none;
+            border: none;
+            height: var(--custom-channel-header-height);
+        }
+
+        &:has(.threadSidebarOpen_f75fb0.threadSidebarFloating_f75fb0)
+            > .bar_c38106 {
+            z-index: 0;
+        }
+    }
+
+    :not(:has(div.page_c48ade > div.chat_f75fb0))
+        div.base_c48ade
+        > div.bar_c38106 {
+        right: 0 !important;
+    }
+
+    ul[data-list-id="guildsnav"]
+        > div.itemsContainer_ef3116
+        > div.stack_dbd263 {
+        margin-top: var(--vr-header-snippet-server-padding);
+    }
+
+    & div.videoControls_bfe55a .topControls_bfe55a,
+    section.header__0b563 div.toolbar__9293f,
+    div.topic__6ec1a {
+        -webkit-app-region: no-drag;
+    }
+}
+
+.visual-refresh .scrollerInner__36d07 {
+  padding-bottom: 5px;
+}
+
+.visual-refresh .membersWrap_c8ffbb .membersGroup_c8ffbb {
+  padding-bottom: 25px;
+}
+
+.visual-refresh .button__74017,.buttonContents_e6e74f:not([class*="enabled__67645"]) {
+  transform: scale(1.25) !important;
+}
+
+.visual-refresh .spriteContainer__04eed {
+ transform: scale(1.1) !important;
+}
+
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
+}
+
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
+}
+
+[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) { display: none; }
+[class*="dm_"]:has([class*="linkPlated_"]) {
+    & [class*="linkPlated_"] { padding-right: var(--space-16); }
+    & [class*="closeButtonPlated_"] {
+        opacity: 0.7;
+        &:hover { opacity: 1; }
+        & [class^="innerCloseButtonPlated"] {
+            opacity: unset; 
+            background: none;
+            & svg {
+                color: inherit;
+                &:is(:hover, :focus-within) { color: var(--interactive-hover); }
+            }
+        }
+    }
+}
