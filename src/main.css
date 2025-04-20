@@ -10,17 +10,17 @@
 .contents_c19a55>.messageContent_c19a55 {
   background-color: rgba(255, 255, 255, 0.075);
   width: fit-content;
-  margin-left: 0px !important;
-  padding-left: 0px !important;
+  margin-left: 10px !important;
+  padding-left: 5px !important;
   padding: 10px !important;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 0px 10px 0px;
   box-sizing: content-box;
   max-width: 100%;
   word-wrap:normal;
 }
 
 .groupStart__5126c .messageContent_c19a55 {
-  border-radius: 10px 10px 10px 0px;
+  border-radius: 1px 10px 10px 1px;
 }
 .message__5126c, .contents_c19a55 {
   /* position: absolute; */
